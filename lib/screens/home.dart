@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it_done/widgets/c_clipper_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
@@ -8,15 +9,17 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blueAccent[100],
+        backgroundColor: Colors.blue[200],
         body: Column(
           children: [
-            Container(
-              child: Text(
-                "Get It Done",
-                style: GoogleFonts.chewy(
-                  textStyle: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height * 0.08),
+            CClipperWidget(
+              child: Center(
+                child: Text(
+                  "Get It Done",
+                  style: GoogleFonts.chewy(
+                    textStyle: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.08),
+                  ),
                 ),
               ),
             ),
