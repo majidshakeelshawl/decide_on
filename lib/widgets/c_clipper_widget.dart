@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class CClipperWidget extends StatelessWidget {
+  // child widget for the Clipper
   final Widget child;
-  const CClipperWidget({Key? key, required this.child}) : super(key: key);
+  // type of clipper required
+  final CustomClipper<Path> clipper;
+  // color of the container
+  final Color color;
+  // height-factor for the container to be clipped
+  final double heightfactor;
+
+  const CClipperWidget(
+      {Key? key,
+      required this.child,
+      required this.clipper,
+      required this.color,
+      required this.heightfactor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: WaveClipperTwo(),
+      clipper: clipper,
       child: Container(
         width: MediaQuery.of(context).size.width,
-        color: Colors.blue[300],
-        height: MediaQuery.of(context).size.height * 0.25,
+        color: color,
+        height: MediaQuery.of(context).size.height * heightfactor,
         child: child,
       ),
     );
