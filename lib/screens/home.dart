@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it_done/widgets/c_clipper_widget.dart';
+import 'package:get_it_done/widgets/c_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
@@ -45,55 +46,32 @@ class Home extends StatelessWidget {
             ),
             Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50, 50, 50, 8),
-                  child: TextField(
-                    onChanged: (value) {},
-                    decoration: const InputDecoration(
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: FaIcon(
-                          FontAwesomeIcons.envelope,
-                          color: const Color(0xff646FD4),
-                        ),
-                      ),
-                      hintText: "Enter Email",
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                    ),
+                // EMAIL FIELD
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(50, 50, 50, 8),
+                  child: CTextField(
                     keyboardType: TextInputType.emailAddress,
+                    hasIcon: true,
+                    prefixIcon: FaIcon(
+                      FontAwesomeIcons.envelope,
+                      color: Color(0xff646FD4),
+                    ),
+                    hintText: "Enter Email",
+                    obscureText: false,
                   ),
                 ),
 
-                // ################################
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50, 8, 50, 16),
-                  child: TextField(
-                    onChanged: (value) {},
-                    decoration: const InputDecoration(
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: FaIcon(
-                          FontAwesomeIcons.userLock,
-                          color: const Color(0xff646FD4),
-                        ),
-                      ),
-                      hintText: "Enter Password",
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
+                // PASSWORD FIELD
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(50, 8, 50, 16),
+                  child: CTextField(
+                    keyboardType: TextInputType.text,
+                    hasIcon: true,
+                    prefixIcon: FaIcon(
+                      FontAwesomeIcons.userLock,
+                      color: Color(0xff646FD4),
                     ),
+                    hintText: "Enter Password",
                     obscureText: true,
                   ),
                 ),
