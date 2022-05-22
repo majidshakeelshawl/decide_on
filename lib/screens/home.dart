@@ -49,40 +49,55 @@ class Home extends StatelessWidget {
             Column(
               children: [
                 // EMAIL FIELD
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(50, 50, 50, 8),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 50, 50, 8),
                   child: CTextField(
                     keyboardType: TextInputType.emailAddress,
                     hasIcon: true,
-                    prefixIcon: FaIcon(
+                    prefixIcon: const FaIcon(
                       FontAwesomeIcons.envelope,
                       color: Color(0xff646FD4),
                     ),
                     hintText: "Enter Email",
                     obscureText: false,
+                    hintTextFont: GoogleFonts.akayaTelivigala(
+                        fontSize: 18, color: const Color(0xff646FD4)),
+                    userTextFont: GoogleFonts.viga(
+                      fontSize: 18,
+                      color: const Color(0xffBDD1FF),
+                    ),
                   ),
                 ),
 
                 // PASSWORD FIELD
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(50, 8, 50, 16),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 8, 50, 16),
                   child: CTextField(
                     keyboardType: TextInputType.text,
                     hasIcon: true,
-                    prefixIcon: FaIcon(
+                    prefixIcon: const FaIcon(
                       FontAwesomeIcons.userLock,
                       color: Color(0xff646FD4),
                     ),
                     hintText: "Enter Password",
                     obscureText: true,
+                    hintTextFont: GoogleFonts.akayaTelivigala(
+                        fontSize: 18, color: const Color(0xff646FD4)),
+                    userTextFont: GoogleFonts.viga(
+                      fontSize: 18,
+                      color: const Color(0xffBDD1FF),
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
+
+                // BUTTONS: LOGIN & SIGN UP
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    // LOGIN BUTTON
                     CButton(
                       buttonColor: const Color(0xff646FD4),
                       font: GoogleFonts.viga(
@@ -94,8 +109,9 @@ class Home extends StatelessWidget {
                       text: "Login",
                       margin: const EdgeInsets.only(right: 10),
                     ),
+                    // SIGN UP BUTTON
                     CButton(
-                      buttonColor: Color(0xff5B73D8),
+                      buttonColor: const Color(0xff5B73D8),
                       height: 50,
                       width: 120,
                       text: "Sign Up",
@@ -103,20 +119,34 @@ class Home extends StatelessWidget {
                         fontSize: 18,
                         color: const Color(0xffBDD1FF),
                       ),
-                      margin: const EdgeInsets.only(right: 0),
+                      margin: const EdgeInsets.all(0),
                     )
                   ],
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 120,
             ),
-            Center(
-              child: Text(
-                "Chinar Labs 🍁",
-                style: GoogleFonts.courierPrime(),
-              ),
+
+            // COMPANY NAME AND LOGO
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Chinar Labs",
+                  style:
+                      GoogleFonts.josefinSans(color: const Color(0xffDBDFFD)),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                const FaIcon(
+                  FontAwesomeIcons.canadianMapleLeaf,
+                  size: 20,
+                  color: Color(0xffDBDFFD),
+                ),
+              ],
             ),
           ],
         ),

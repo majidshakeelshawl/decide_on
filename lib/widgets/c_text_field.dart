@@ -4,7 +4,9 @@ class CTextField extends StatelessWidget {
   final bool obscureText;
   final bool hasIcon;
   final String hintText;
-  // as FaIcon(fontawesome)
+  final TextStyle hintTextFont;
+  final TextStyle userTextFont;
+  //  give inside as FaIcon(fontawesome) for prefixIcon
   final Widget prefixIcon;
   final TextInputType keyboardType;
 
@@ -14,12 +16,15 @@ class CTextField extends StatelessWidget {
       required this.prefixIcon,
       required this.obscureText,
       required this.hintText,
-      required this.keyboardType})
+      required this.keyboardType,
+      required this.hintTextFont,
+      required this.userTextFont})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: userTextFont,
       onChanged: (value) {},
       decoration: InputDecoration(
         prefixIcon: hasIcon
@@ -28,6 +33,7 @@ class CTextField extends StatelessWidget {
                 child: prefixIcon,
               )
             : null,
+        hintStyle: hintTextFont,
         hintText: hintText,
         border: const OutlineInputBorder(
           borderSide: BorderSide(
