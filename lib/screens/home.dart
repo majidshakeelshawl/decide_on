@@ -5,6 +5,8 @@ import 'package:get_it_done/widgets/c_clipper_widget.dart';
 import 'package:get_it_done/widgets/c_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../widgets/cbutton.dart';
+
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class Home extends StatelessWidget {
         backgroundColor: const Color(0xff9BA3EB),
         body: Column(
           children: [
-            // my custom created widget
+            // CLIPPER: APP NAME AND TAGLINE
             CClipperWidget(
               clipper: WaveClipperOne(),
               color: const Color(0xff646FD4),
@@ -81,51 +83,28 @@ class Home extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          color: Color(0xff646FD4),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                        ),
-                        height: 50,
-                        width: 200,
-                        child: Center(
-                          child: Text(
-                            "Login",
-                            style: GoogleFonts.viga(
-                              fontSize: 18,
-                              color: Color(0xffBDD1FF),
-                            ),
-                          ),
-                        ),
+                    CButton(
+                      buttonColor: const Color(0xff646FD4),
+                      font: GoogleFonts.viga(
+                        fontSize: 18,
+                        color: const Color(0xffBDD1FF),
                       ),
+                      height: 50,
+                      width: 200,
+                      text: "Login",
+                      margin: const EdgeInsets.only(right: 10),
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xff5B73D8),
-                          borderRadius: new BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                        ),
-                        height: 50,
-                        width: 120,
-                        child: Center(
-                          child: Text(
-                            "Sign Up",
-                            style: GoogleFonts.viga(
-                              fontSize: 18,
-                              color: Color(0xffBDD1FF),
-                            ),
-                          ),
-                        ),
+                    CButton(
+                      buttonColor: Color(0xff5B73D8),
+                      height: 50,
+                      width: 120,
+                      text: "Sign Up",
+                      font: GoogleFonts.viga(
+                        fontSize: 18,
+                        color: const Color(0xffBDD1FF),
                       ),
-                    ),
+                      margin: const EdgeInsets.only(right: 0),
+                    )
                   ],
                 ),
               ],
