@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: GestureDetector(
-        // Used to make unfocus for keyboard not closing after clicking other than input
+        // Used to make keyboard unfocused not closing after clicking other than input
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           resizeToAvoidBottomInset:
@@ -95,7 +95,7 @@ class Home extends StatelessWidget {
                               keyboardType: TextInputType.text,
                               hasIcon: true,
                               prefixIcon: const FaIcon(
-                                FontAwesomeIcons.userLock,
+                                FontAwesomeIcons.userShield,
                                 color: Color(0xff646FD4),
                               ),
                               hintText: "Enter Password",
@@ -112,45 +112,38 @@ class Home extends StatelessWidget {
                           // BUTTONS: LOGIN & SIGN UP
                           Padding(
                             padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width * 0.05,
+                                MediaQuery.of(context).size.width * 0.1,
                                 0,
-                                MediaQuery.of(context).size.width * 0.05,
+                                MediaQuery.of(context).size.width * 0.1,
                                 0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            child: Column(
+//                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 // LOGIN BUTTON
-                                Flexible(
-                                  flex: 2,
-                                  child: CButton(
-                                    buttonColor: const Color(0xff646FD4),
-                                    font: GoogleFonts.viga(
-                                      fontSize: 18,
-                                      color: const Color(0xffBDD1FF),
-                                    ),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.09,
-                                    width:
-                                        MediaQuery.of(context).size.width * 2,
-                                    text: "Login",
-                                    margin: const EdgeInsets.only(right: 0),
+                                CButton(
+                                  buttonColor: const Color(0xff646FD4),
+                                  font: GoogleFonts.viga(
+                                    fontSize: 18,
+                                    color: const Color(0xffBDD1FF),
                                   ),
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.09,
+                                  width: MediaQuery.of(context).size.width * 2,
+                                  text: "Login",
+                                  margin: const EdgeInsets.only(right: 0),
                                 ),
                                 // SIGN UP BUTTON
-                                Flexible(
-                                  child: CButton(
-                                    buttonColor: const Color(0xff5B73D8),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.09,
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.4,
-                                    text: "Sign Up",
-                                    font: GoogleFonts.viga(
-                                      fontSize: 18,
-                                      color: const Color(0xffBDD1FF),
-                                    ),
-                                    margin: const EdgeInsets.only(left: 3),
+                                CButton(
+                                  buttonColor: const Color(0xff5B73D8),
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.09,
+                                  width: MediaQuery.of(context).size.width * 2,
+                                  text: "Sign Up",
+                                  font: GoogleFonts.viga(
+                                    fontSize: 18,
+                                    color: const Color(0xffBDD1FF),
                                   ),
+                                  margin: const EdgeInsets.only(top: 3),
                                 )
                               ],
                             ),
@@ -159,23 +152,28 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     // COMPANY NAME AND LOGO
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Chinar Labs",
-                          style: GoogleFonts.josefinSans(
-                              color: const Color(0xffDBDFFD)),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const FaIcon(
-                          FontAwesomeIcons.canadianMapleLeaf,
-                          size: 20,
-                          color: Color(0xffDBDFFD),
-                        ),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height * 0.03),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Chinar Labs",
+                            style: GoogleFonts.josefinSans(
+                              color: const Color(0xffDBDFFD),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const FaIcon(
+                            FontAwesomeIcons.canadianMapleLeaf,
+                            size: 20,
+                            color: Color(0xffDBDFFD),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
