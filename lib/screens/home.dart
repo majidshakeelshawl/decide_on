@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_it_done/constants/light_theme.dart';
 import 'package:get_it_done/widgets/c_clipper_widget.dart';
 import 'package:get_it_done/widgets/c_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../constants/light_dark.dart';
 import '../widgets/cbutton.dart';
 
 class Home extends StatelessWidget {
@@ -19,35 +21,25 @@ class Home extends StatelessWidget {
         child: Scaffold(
           resizeToAvoidBottomInset:
               false, // Will not bring the bottom widgets up : fixes overflow
-          backgroundColor: const Color(0xffCDC2AE),
+          backgroundColor: kScaffoldBackgroundColor,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // CLIPPER: APP NAME AND TAGLINE
               CClipperWidget(
                 clipper: WaveClipperOne(),
-                color: const Color(0xffECE5C7),
+                color: kClipperBackgroundColor,
                 heightfactor: 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Get It Done",
-                      style: GoogleFonts.fredokaOne(
-                        textStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.08,
-                          color: const Color(0xff065C6F),
-                        ),
-                      ),
+                      style: kLogoFont(context),
                     ),
                     Text(
                       "Help across the world",
-                      style: GoogleFonts.chewy(
-                        textStyle: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.03,
-                          color: const Color(0xff354259),
-                        ),
-                      ),
+                      style: kTagLineFont(context),
                     ),
                   ],
                 ),
