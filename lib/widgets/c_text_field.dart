@@ -27,6 +27,9 @@ class CTextField extends StatelessWidget {
       style: userTextFont,
       onChanged: (value) {},
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color(0xff065C6F), width: 1.5),
+            borderRadius: BorderRadius.circular(10)),
         prefixIcon: hasIcon
             ? Padding(
                 padding: const EdgeInsets.all(8.0),
