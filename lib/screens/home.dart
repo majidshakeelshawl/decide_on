@@ -21,25 +21,25 @@ class Home extends StatelessWidget {
         child: Scaffold(
           resizeToAvoidBottomInset:
               false, // Will not bring the bottom widgets up : fixes overflow
-          backgroundColor: kScaffoldBackgroundColor,
+          backgroundColor: klScaffoldBackgroundColor,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // CLIPPER: APP NAME AND TAGLINE
               CClipperWidget(
                 clipper: WaveClipperOne(),
-                color: kClipperBackgroundColor,
+                color: klClipperBackgroundColor,
                 heightfactor: 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Get It Done",
-                      style: kLogoFont(context),
+                      style: kldLogoFont(context),
                     ),
                     Text(
                       "Help across the world",
-                      style: kTagLineFont(context),
+                      style: kldTagLineFont(context),
                     ),
                   ],
                 ),
