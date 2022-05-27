@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get_it_done/constants/light_theme.dart';
+import 'package:get_it_done/constants/light.dart';
 import 'package:get_it_done/widgets/c_clipper_widget.dart';
 import 'package:get_it_done/widgets/c_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,25 +21,25 @@ class Home extends StatelessWidget {
         child: Scaffold(
           resizeToAvoidBottomInset:
               false, // Will not bring the bottom widgets up : fixes overflow
-          backgroundColor: klScaffoldBackgroundColor,
+          backgroundColor: klBackgroundColorScaffold,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // CLIPPER: APP NAME AND TAGLINE
               CClipperWidget(
                 clipper: WaveClipperOne(),
-                color: klClipperBackgroundColor,
+                color: klBackgroundColorHomeClipper,
                 heightfactor: 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Get It Done",
-                      style: kldLogoFont(context),
+                      style: klFontLogo(context),
                     ),
                     Text(
                       "Help across the world",
-                      style: kldTagLineFont(context),
+                      style: klFontTagLine(context),
                     ),
                   ],
                 ),
@@ -53,69 +53,38 @@ class Home extends StatelessWidget {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width * 0.05,
-                                MediaQuery.of(context).size.height * 0.1,
-                                MediaQuery.of(context).size.width * 0.05,
-                                0),
+                            padding: kldPaddingEmailTextField(context),
                             child: CTextField(
                               borderWidth: 3.0,
-                              borderColor: const Color(0xff065C6F),
+                              borderColor: klBorderColorEmailPasswordTextField,
                               keyboardType: TextInputType.emailAddress,
                               hasIcon: true,
-                              prefixIcon: const FaIcon(
-                                FontAwesomeIcons.envelope,
-                                color: Color(0xff065C6F),
-                              ),
+                              prefixIcon: klIconEmailTextField,
                               hintText: "Enter Email",
                               obscureText: false,
-                              hintTextFont: GoogleFonts.akayaTelivigala(
-                                fontSize: 18,
-                                color: const Color(0xff065C6F),
-                              ),
-                              userTextFont: GoogleFonts.stylish(
-                                fontSize: 18,
-                                color: const Color(0xff354259),
-                              ),
+                              hintTextFont: klFontEmailHint(context),
+                              userTextFont: klFontEmailUser(context),
                             ),
                           ),
-
                           // PASSWORD FIELD
                           Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width * 0.05,
-                                MediaQuery.of(context).size.height * 0.01,
-                                MediaQuery.of(context).size.width * 0.05,
-                                MediaQuery.of(context).size.height * 0.1),
+                            padding: kldPaddingPasswordTextField(context),
                             child: CTextField(
                               borderWidth: 3.0,
-                              borderColor: const Color(0xff065C6F),
+                              borderColor: klBorderColorEmailPasswordTextField,
                               keyboardType: TextInputType.text,
                               hasIcon: true,
-                              prefixIcon: const FaIcon(
-                                FontAwesomeIcons.userShield,
-                                color: Color(0xff065C6F),
-                              ),
+                              prefixIcon: klIconPasswordTextField,
                               hintText: "Enter Password",
                               obscureText: true,
-                              hintTextFont: GoogleFonts.akayaTelivigala(
-                                fontSize: 18,
-                                color: const Color(0xff065C6F),
-                              ),
-                              userTextFont: GoogleFonts.viga(
-                                fontSize: 18,
-                                color: const Color(0xff354259),
-                              ),
+                              hintTextFont: klFontPasswordHint(context),
+                              userTextFont: klFontPasswordUser(context),
                             ),
                           ),
 
                           // BUTTONS: LOGIN & SIGN UP
                           Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width * 0.1,
-                                0,
-                                MediaQuery.of(context).size.width * 0.1,
-                                0),
+                            padding: kldPaddingLoginSignUpButtonColumn(context),
                             child: Column(
 //                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [

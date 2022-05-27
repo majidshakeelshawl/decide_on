@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-kldLogoFont(BuildContext context) {
-  return (GoogleFonts.fredokaOne(
-    textStyle: TextStyle(
-      fontSize: MediaQuery.of(context).size.height * 0.08,
-      color: const Color(0xff065C6F),
-    ),
-  ));
+//Padding
+kldPaddingEmailTextField(BuildContext context) {
+  return (EdgeInsets.fromLTRB(
+      MediaQuery.of(context).size.width * 0.05,
+      MediaQuery.of(context).size.height * 0.1,
+      MediaQuery.of(context).size.width * 0.05,
+      0));
 }
 
-kldTagLineFont(BuildContext context) {
-  return (GoogleFonts.chewy(
-    textStyle: TextStyle(
-      fontSize: MediaQuery.of(context).size.height * 0.03,
-      color: const Color(0xff354259),
-    ),
-  ));
+kldPaddingPasswordTextField(BuildContext context) {
+  return (EdgeInsets.fromLTRB(
+      MediaQuery.of(context).size.width * 0.05,
+      MediaQuery.of(context).size.height * 0.01,
+      MediaQuery.of(context).size.width * 0.05,
+      MediaQuery.of(context).size.height * 0.1));
+}
+
+kldPaddingLoginSignUpButtonColumn(BuildContext context) {
+  return (EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.1, 0,
+      MediaQuery.of(context).size.width * 0.1, 0));
 }
