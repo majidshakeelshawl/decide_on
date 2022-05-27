@@ -9,8 +9,8 @@ class CTextField extends StatelessWidget {
   //  give inside as FaIcon(fontawesome) for prefixIcon
   final Widget prefixIcon;
   final TextInputType keyboardType;
-  final borderWidth;
-  final borderColor;
+  final double borderWidth;
+  final Color borderColor;
 
   const CTextField(
       {Key? key,
@@ -21,8 +21,8 @@ class CTextField extends StatelessWidget {
       required this.keyboardType,
       required this.hintTextFont,
       required this.userTextFont,
-      this.borderWidth,
-      this.borderColor})
+      required this.borderWidth,
+      required this.borderColor})
       : super(key: key);
 
   @override
