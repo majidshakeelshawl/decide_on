@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it_done/constants/light.dart';
 import 'package:get_it_done/widgets/c_clipper_widget.dart';
 import 'package:get_it_done/widgets/c_text_field.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/light_dark.dart';
 import '../widgets/cbutton.dart';
@@ -29,7 +27,7 @@ class Home extends StatelessWidget {
               CClipperWidget(
                 clipper: WaveClipperOne(),
                 color: klBackgroundColorHomeClipper,
-                heightfactor: 0.25,
+                heightFactor: 0.25,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -90,30 +88,22 @@ class Home extends StatelessWidget {
                               children: [
                                 // LOGIN BUTTON
                                 CButton(
-                                  borderColor: const Color(0x96065C6F),
-                                  buttonColor: const Color(0xff64958F),
-                                  font: GoogleFonts.viga(
-                                    fontSize: 18,
-                                    color: const Color(0xffECE5C7),
-                                  ),
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.09,
-                                  width: MediaQuery.of(context).size.width * 2,
+                                  borderColor: klBorderColorLoginButton,
+                                  buttonColor: klColorLoginButton,
+                                  font: klFontLoginSignUpButton(context),
+                                  height: kldHeightLoginSignUpButton(context),
+                                  width: kldWidthLoginSignUpButton(context),
                                   text: "Login",
                                   margin: const EdgeInsets.only(right: 0),
                                 ),
                                 // SIGN UP BUTTON
                                 CButton(
-                                  borderColor: const Color(0xff64958F),
-                                  buttonColor: const Color(0x96065C6F),
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.09,
-                                  width: MediaQuery.of(context).size.width * 2,
+                                  borderColor: klBorderColorSignUpButton,
+                                  buttonColor: klColorSignUpButton,
+                                  height: kldHeightLoginSignUpButton(context),
+                                  width: kldWidthLoginSignUpButton(context),
                                   text: "Sign Up",
-                                  font: GoogleFonts.viga(
-                                    fontSize: 18,
-                                    color: const Color(0xffECE5C7),
-                                  ),
+                                  font: klFontLoginSignUpButton(context),
                                   margin: const EdgeInsets.only(top: 3),
                                 )
                               ],
@@ -124,25 +114,18 @@ class Home extends StatelessWidget {
                     ),
                     // COMPANY NAME AND LOGO
                     Padding(
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).size.height * 0.03),
+                      padding: kldPaddingCompanyNameLogoRow(context),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "Chinar Labs",
-                            style: GoogleFonts.josefinSans(
-                              color: const Color(0xff065C6F),
-                            ),
+                            style: klFontCompanyName(context),
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 5,
                           ),
-                          const FaIcon(
-                            FontAwesomeIcons.canadianMapleLeaf,
-                            size: 20,
-                            color: Color(0xff065C6F),
-                          ),
+                          klIconCompanyLogo(context),
                         ],
                       ),
                     ),

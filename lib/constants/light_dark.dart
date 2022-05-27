@@ -21,3 +21,16 @@ kldPaddingLoginSignUpButtonColumn(BuildContext context) {
   return (EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.1, 0,
       MediaQuery.of(context).size.width * 0.1, 0));
 }
+
+kldPaddingCompanyNameLogoRow(BuildContext context) {
+  return (EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.03));
+}
+
+// height & width
+kldHeightLoginSignUpButton(BuildContext context) {
+  return (MediaQuery.of(context).size.height * 0.09);
+}
+
+kldWidthLoginSignUpButton(BuildContext context) {
+  return (MediaQuery.of(context).size.width * 2);
+}

@@ -3,9 +3,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // Colors
-const klBackgroundColorScaffold = Color(0xffCDC2AE);
-const klBackgroundColorHomeClipper = Color(0xffECE5C7);
+const klBackgroundColorScaffold = Color(0xffF6F6F6); //CDC2AE
+const klBackgroundColorHomeClipper = Color(0xffC0D9E5); //ECE5C7
 const klBorderColorEmailPasswordTextField = Color(0xff065C6F);
+const klBorderColorLoginButton = Color(0x96065C6F);
+const klBorderColorSignUpButton = Color(0xff64958F);
+const klColorLoginButton = Color(0x86065C6F);
+const klColorSignUpButton = Color(0x66065C6F);
 
 // Icons
 const klIconEmailTextField = FaIcon(
@@ -16,6 +20,13 @@ const klIconPasswordTextField = FaIcon(
   FontAwesomeIcons.userShield,
   color: Color(0xff065C6F),
 );
+klIconCompanyLogo(BuildContext context) {
+  return (const FaIcon(
+    FontAwesomeIcons.canadianMapleLeaf,
+    size: 20,
+    color: Color(0xff065C6F),
+  ));
+}
 
 // Fonts
 klFontLogo(BuildContext context) {
@@ -61,5 +72,18 @@ klFontPasswordUser(BuildContext context) {
   return (GoogleFonts.viga(
     fontSize: 18,
     color: const Color(0xff354259),
+  ));
+}
+
+klFontLoginSignUpButton(BuildContext context) {
+  return (GoogleFonts.viga(
+    fontSize: 18,
+    color: const Color(0xff000000),
+  ));
+}
+
+klFontCompanyName(BuildContext context) {
+  return (GoogleFonts.josefinSans(
+    color: const Color(0xff065C6F),
   ));
 }

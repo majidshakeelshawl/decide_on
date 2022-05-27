@@ -8,14 +8,14 @@ class CClipperWidget extends StatelessWidget {
   // color of the container
   final Color color;
   // height-factor for the container to be clipped
-  final double heightfactor;
+  final double heightFactor;
 
   const CClipperWidget(
       {Key? key,
       required this.child,
       required this.clipper,
       required this.color,
-      required this.heightfactor})
+      required this.heightFactor})
       : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class CClipperWidget extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         color: color,
-        height: MediaQuery.of(context).size.height * heightfactor,
+        height: MediaQuery.of(context).size.height * heightFactor,
         child: child,
       ),
     );
