@@ -67,6 +67,8 @@ class Home extends StatelessWidget {
                                 MediaQuery.of(context).size.width * 0.05,
                                 0),
                             child: CTextField(
+                              borderWidth: 3.0,
+                              borderColor: const Color(0xff065C6F),
                               keyboardType: TextInputType.emailAddress,
                               hasIcon: true,
                               prefixIcon: const FaIcon(
@@ -94,6 +96,8 @@ class Home extends StatelessWidget {
                                 MediaQuery.of(context).size.width * 0.05,
                                 MediaQuery.of(context).size.height * 0.1),
                             child: CTextField(
+                              borderWidth: 3.0,
+                              borderColor: const Color(0xff065C6F),
                               keyboardType: TextInputType.text,
                               hasIcon: true,
                               prefixIcon: const FaIcon(
@@ -125,6 +129,7 @@ class Home extends StatelessWidget {
                               children: [
                                 // LOGIN BUTTON
                                 CButton(
+                                  borderColor: const Color(0x96065C6F),
                                   buttonColor: const Color(0xff64958F),
                                   font: GoogleFonts.viga(
                                     fontSize: 18,
@@ -138,7 +143,8 @@ class Home extends StatelessWidget {
                                 ),
                                 // SIGN UP BUTTON
                                 CButton(
-                                  buttonColor: const Color(0xff065C6F),
+                                  borderColor: const Color(0xff64958F),
+                                  buttonColor: const Color(0x96065C6F),
                                   height:
                                       MediaQuery.of(context).size.height * 0.09,
                                   width: MediaQuery.of(context).size.width * 2,
