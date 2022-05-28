@@ -49,35 +49,35 @@ klFontTagLine(BuildContext context) {
 
 klFontEmailHint(BuildContext context) {
   return (GoogleFonts.akayaTelivigala(
-    fontSize: 18,
+    fontSize: MediaQuery.of(context).size.width * 0.04,
     color: const Color(0xff065C6F),
   ));
 }
 
 klFontEmailUser(BuildContext context) {
-  return (GoogleFonts.stylish(
-    fontSize: 18,
+  return (GoogleFonts.outfit(
+    fontSize: MediaQuery.of(context).size.width * 0.05,
     color: const Color(0xff354259),
   ));
 }
 
 klFontPasswordHint(BuildContext context) {
   return (GoogleFonts.akayaTelivigala(
-    fontSize: 18,
+    fontSize: MediaQuery.of(context).size.width * 0.04,
     color: const Color(0xff065C6F),
   ));
 }
 
 klFontPasswordUser(BuildContext context) {
   return (GoogleFonts.viga(
-    fontSize: 18,
+    fontSize: MediaQuery.of(context).size.width * 0.05,
     color: const Color(0xff354259),
   ));
 }
 
 klFontLoginSignUpButton(BuildContext context) {
   return (GoogleFonts.viga(
-    fontSize: 18,
+    fontSize: MediaQuery.of(context).size.width * 0.04,
     color: const Color(0xff000000),
   ));
 }
