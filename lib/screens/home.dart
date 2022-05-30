@@ -119,7 +119,7 @@ class Home extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Chinar Labs",
+                            "Name",
                             style: klFontCompanyName(context),
                           ),
                           const SizedBox(
