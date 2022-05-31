@@ -1,4 +1,4 @@
-package com.chinarlabs.getitdone.get_it_done
+package com.headway.decideon.decide_on
 
 import io.flutter.embedding.android.FlutterActivity
 

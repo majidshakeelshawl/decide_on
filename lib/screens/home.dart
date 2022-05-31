@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                       style: klFontLogo(context),
                     ),
                     Text(
-                      "Reviews that matter",
+                      "reviews that matter",
                       style: klFontTagLine(context),
                     ),
                   ],
@@ -88,6 +88,9 @@ class Home extends StatelessWidget {
                               children: [
                                 // LOGIN BUTTON
                                 CButton(
+                                  onTap: () {
+                                    print("Login Click");
+                                  },
                                   borderColor: klBorderColorLoginButton,
                                   buttonColor: klColorLoginButton,
                                   font: klFontLoginSignUpButton(context),
@@ -98,6 +101,9 @@ class Home extends StatelessWidget {
                                 ),
                                 // SIGN UP BUTTON
                                 CButton(
+                                  onTap: () {
+                                    print("SignUp Click");
+                                  },
                                   borderColor: klBorderColorSignUpButton,
                                   buttonColor: klColorSignUpButton,
                                   height: kldHeightLoginSignUpButton(context),

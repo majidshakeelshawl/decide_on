@@ -7,6 +7,7 @@ class CButton extends StatelessWidget {
   final String text;
   final TextStyle font;
   final Color borderColor;
+  final Function()? onTap;
   final EdgeInsetsGeometry margin;
   const CButton(
       {Key? key,
@@ -16,13 +17,14 @@ class CButton extends StatelessWidget {
       required this.text,
       required this.font,
       required this.margin,
-      required this.borderColor})
+      required this.borderColor,
+      this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         margin: margin,
         decoration: BoxDecoration(
