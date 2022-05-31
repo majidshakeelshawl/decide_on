@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "224811169160",
+    "project_id": "decideon-44417",
+    "storage_bucket": "decideon-44417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224811169160:android:f10eb9628321afee42b63d",
+        "android_client_info": {
+          "package_name": "com.headway.decideon.decide_on"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224811169160-0o9nt3hi6f58qgedq90t5k0u724dlsnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGNixA7rwL0lXE8XbJLVIVo5BIFqUzYec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224811169160-0o9nt3hi6f58qgedq90t5k0u724dlsnf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
