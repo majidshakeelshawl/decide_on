@@ -32,11 +32,11 @@ class Home extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Get It Done",
+                      "Decide On",
                       style: klFontLogo(context),
                     ),
                     Text(
-                      "Help across the world",
+                      "Reviews that matter",
                       style: klFontTagLine(context),
                     ),
                   ],
@@ -119,7 +119,7 @@ class Home extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Name",
+                            "Headway",
                             style: klFontCompanyName(context),
                           ),
                           const SizedBox(

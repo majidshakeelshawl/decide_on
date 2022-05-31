@@ -22,7 +22,7 @@ const klIconPasswordTextField = FaIcon(
 );
 klIconCompanyLogo(BuildContext context) {
   return (const FaIcon(
-    FontAwesomeIcons.canadianMapleLeaf,
+    FontAwesomeIcons.circleChevronRight,
     size: 20,
     color: Color(0xff065C6F),
   ));

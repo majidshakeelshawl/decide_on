@@ -1,6 +1,5 @@
-# get_it_done
-
-Mobile App To Find Right People For a Particular Job and To Buy Best Possible Essential or Required Things.
+# Decide On
+Mobile App To Consider or Buy Best Possible Essential or Required Things.
 
 ## Getting Started
 
