@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chinarlabs.getitdone.get_it_done">
+    package="com.headway.decideon.decide_on">
    <application
-        android:label="get_it_done"
+        android:label="Decide On"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

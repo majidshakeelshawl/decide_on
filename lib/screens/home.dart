@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                       style: klFontLogo(context),
                     ),
                     Text(
-                      "Reviews that matter",
+                      "reviews that matter",
                       style: klFontTagLine(context),
                     ),
                   ],
