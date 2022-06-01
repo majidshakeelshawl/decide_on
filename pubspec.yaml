@@ -38,6 +38,7 @@ dependencies:
   flutter_custom_clippers: ^2.0.0
   font_awesome_flutter: ^10.1.0
   firebase_core: ^1.17.1
+  firebase_auth: ^3.3.19
 
 dev_dependencies:
   flutter_test:
