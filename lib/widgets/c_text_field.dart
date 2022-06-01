@@ -11,6 +11,7 @@ class CTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final double borderWidth;
   final Color borderColor;
+  final Function(String)? onChanged;
 
   const CTextField(
       {Key? key,
@@ -22,14 +23,15 @@ class CTextField extends StatelessWidget {
       required this.hintTextFont,
       required this.userTextFont,
       required this.borderWidth,
-      required this.borderColor})
+      required this.borderColor,
+      required this.onChanged})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       style: userTextFont,
-      onChanged: (value) {},
+      onChanged: onChanged,
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: borderColor, width: borderWidth),

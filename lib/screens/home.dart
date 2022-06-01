@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get_it_done/constants/light.dart';
@@ -8,7 +9,10 @@ import '../constants/light_dark.dart';
 import '../widgets/cbutton.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  final _auth = FirebaseAuth.instance;
+  late var userEmail;
+  late var userPassword;
+  Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +57,9 @@ class Home extends StatelessWidget {
                           Padding(
                             padding: kldPaddingEmailTextField(context),
                             child: CTextField(
+                              onChanged: (value) {
+                                userEmail = value;
+                              },
                               borderWidth: 3.0,
                               borderColor: klBorderColorEmailPasswordTextField,
                               keyboardType: TextInputType.emailAddress,
@@ -68,6 +75,9 @@ class Home extends StatelessWidget {
                           Padding(
                             padding: kldPaddingPasswordTextField(context),
                             child: CTextField(
+                              onChanged: (value) {
+                                userPassword = value;
+                              },
                               borderWidth: 3.0,
                               borderColor: klBorderColorEmailPasswordTextField,
                               keyboardType: TextInputType.text,
@@ -88,8 +98,19 @@ class Home extends StatelessWidget {
                               children: [
                                 // LOGIN BUTTON
                                 CButton(
-                                  onTap: () {
-                                    print("Login Click");
+                                  onTap: () async {
+                                    try {
+                                      final loggedInUser = await _auth
+                                          .signInWithEmailAndPassword(
+                                              email: userEmail,
+                                              password: userPassword);
+                                      loggedInUser != null
+                                          ? Navigator.pushNamed(
+                                              context, '/dashboard')
+                                          : null;
+                                    } catch (error) {
+                                      print(error);
+                                    }
                                   },
                                   borderColor: klBorderColorLoginButton,
                                   buttonColor: klColorLoginButton,
@@ -101,8 +122,15 @@ class Home extends StatelessWidget {
                                 ),
                                 // SIGN UP BUTTON
                                 CButton(
-                                  onTap: () {
-                                    print("SignUp Click");
+                                  onTap: () async {
+                                    try {
+                                      await _auth
+                                          .createUserWithEmailAndPassword(
+                                              email: userEmail,
+                                              password: userPassword);
+                                    } catch (error) {
+                                      print(error);
+                                    }
                                   },
                                   borderColor: klBorderColorSignUpButton,
                                   buttonColor: klColorSignUpButton,

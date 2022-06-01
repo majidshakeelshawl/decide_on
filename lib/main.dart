@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it_done/screens/dashboard.dart';
 import 'package:get_it_done/screens/home.dart';
 
 import 'firebase_options.dart';
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => const Home(),
+        '/': (context) => Home(),
+        '/dashboard': (context) => const DashBoard(),
       },
     );
   }
