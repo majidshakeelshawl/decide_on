@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it_done/screens/dashboard.dart';
 import 'package:get_it_done/screens/home.dart';
+import 'package:get_it_done/screens/sign_up.dart';
 
 import 'firebase_options.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Home(),
         '/dashboard': (context) => const DashBoard(),
+        '/signup': (context) => const SignUp(),
       },
     );
   }

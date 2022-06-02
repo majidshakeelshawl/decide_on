@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get_it_done/constants/light.dart';
-import 'package:get_it_done/screens/sign_up.dart';
 import 'package:get_it_done/widgets/c_clipper_widget.dart';
 
+import '../constants/light.dart';
 import '../constants/light_dark.dart';
+import '../widgets/cbutton.dart';
 import 'login.dart';
 
 class Home extends StatelessWidget {
@@ -52,9 +53,23 @@ class Home extends StatelessWidget {
                     // EMAIL PASSWORD AND BUTTONS
                     Expanded(
                       child: Column(
-                        children: const [
-                          Login(),
-                          SignUp(),
+                        children: [
+                          const Login(),
+                          Padding(
+                            padding: kldPaddingLoginSignUpButtonColumn(context),
+                            child: CButton(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/signup');
+                              },
+                              borderColor: klBorderColorSignUpButton,
+                              buttonColor: klColorSignUpButton,
+                              height: kldHeightLoginSignUpButton(context),
+                              width: kldWidthLoginSignUpButton(context),
+                              text: "Register",
+                              font: klFontLoginSignUpButton(context),
+                              margin: const EdgeInsets.only(top: 3),
+                            ),
+                          )
                         ],
                       ),
                     ),
