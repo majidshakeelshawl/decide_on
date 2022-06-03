@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get_it_done/constants/light.dart';
+import 'package:get_it_done/screens/button_register.dart';
 import 'package:get_it_done/widgets/c_clipper_widget.dart';
 
 import '../constants/light.dart';
 import '../constants/light_dark.dart';
-import '../widgets/cbutton.dart';
 import 'login.dart';
 
 class Home extends StatelessWidget {
-  //final _auth = FirebaseAuth.instance;
-  late var userEmail;
-  late var userPassword;
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,26 +47,12 @@ class Home extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    // EMAIL PASSWORD AND BUTTONS
+                    // LOGIN SCREEN & REGISTER BUTTON
                     Expanded(
                       child: Column(
-                        children: [
-                          const Login(),
-                          Padding(
-                            padding: kldPaddingLoginSignUpButtonColumn(context),
-                            child: CButton(
-                              onTap: () {
-                                Navigator.pushNamed(context, '/signup');
-                              },
-                              borderColor: klBorderColorSignUpButton,
-                              buttonColor: klColorSignUpButton,
-                              height: kldHeightLoginSignUpButton(context),
-                              width: kldWidthLoginSignUpButton(context),
-                              text: "Register",
-                              font: klFontLoginSignUpButton(context),
-                              margin: const EdgeInsets.only(top: 3),
-                            ),
-                          )
+                        children: const [
+                          Login(),
+                          RegisterButton(),
                         ],
                       ),
                     ),
