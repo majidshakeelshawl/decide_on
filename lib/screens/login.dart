@@ -67,10 +67,9 @@ class _LoginState extends State<Login> {
               CButton(
                 onTap: () async {
                   try {
-                    _auth.signOut();
-                    print(_auth.currentUser);
                     final loggedInUser = await _auth.signInWithEmailAndPassword(
                         email: userEmail, password: userPassword);
+                    print(_auth.currentUser);
                     if (mounted) {
                       loggedInUser.user != null
                           ? Navigator.pushNamed(context, '/dashboard')
