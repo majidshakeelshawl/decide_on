@@ -52,6 +52,7 @@ class Home extends StatelessWidget {
                       child: Column(
                         children: const [
                           Login(),
+                          // BUTTON TO MOVE TO SIGNUP PAGE
                           RegisterButton(),
                         ],
                       ),

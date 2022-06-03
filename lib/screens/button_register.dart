@@ -4,7 +4,6 @@ import '../constants/light.dart';
 import '../constants/light_dark.dart';
 import '../widgets/cbutton.dart';
 
-// BUTTON TO MOVE TO SIGNUP PAGE
 class RegisterButton extends StatelessWidget {
   const RegisterButton({Key? key}) : super(key: key);
 
