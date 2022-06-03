@@ -69,14 +69,14 @@ class _LoginState extends State<Login> {
                   try {
                     final loggedInUser = await _auth.signInWithEmailAndPassword(
                         email: userEmail, password: userPassword);
-                    print(_auth.currentUser);
+                    //print(_auth.currentUser);
                     if (mounted) {
                       loggedInUser.user != null
                           ? Navigator.pushNamed(context, '/dashboard')
                           : null;
                     }
                   } catch (error) {
-                    print(_auth.currentUser);
+                    //print(_auth.currentUser);
                     if (_auth.currentUser == null) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

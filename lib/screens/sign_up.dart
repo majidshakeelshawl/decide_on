@@ -102,7 +102,7 @@ class _SignUpState extends State<SignUp> {
                             Navigator.pop(context);
                           }
                         } catch (error) {
-                          print(error);
+                          //print(error);
                         }
                       },
                       borderColor: klBorderColorSignUpButton,
