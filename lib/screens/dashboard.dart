@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/cbutton.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -15,54 +12,58 @@ class DashBoard extends StatefulWidget {
 class _DashBoardState extends State<DashBoard> {
   final _auth = FirebaseAuth.instance;
   final _firestore = FirebaseFirestore.instance;
-  var currentDocument = null;
+  var _isFetched = false;
+  var _currentDocument;
+
+  void _setUser() async {
+    var currentUser = _auth.currentUser;
+    _currentDocument =
+        await _firestore.collection('users').doc(currentUser?.uid).get();
+    print("${_currentDocument.data()} in init method");
+    _isFetched = true;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _setUser();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text("Hello"),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          CButton(
-            onTap: () async {
-              try {
-                currentDocument = await _firestore
-                    .collection('users')
-                    .doc(_auth.currentUser?.uid)
-                    .get();
-                print(currentDocument.data());
-                // await _firestore
-                //     .collection('users')
-                //     .doc(_auth.currentUser?.uid)
-                //     .update({"name": "WHO", "country": "Switzerland"});
-                // currentDocument = await _firestore
-                //     .collection('users')
-                //     .doc(_auth.currentUser?.uid)
-                //     .get();
-                // print(currentDocument.data());
-              } catch (error) {
-                print("Error ::: ${error}");
-              }
-            },
-            font: GoogleFonts.akayaTelivigala(),
-            buttonColor: Colors.red,
-            width: 100.3,
-            margin: EdgeInsets.all(10),
-            borderColor: Colors.blue,
-            height: 200.3,
-            text: 'Try Firestore',
-          ),
-          Center(
-            child: Column(
-              children: [
-                Text(""),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: _isFetched
+                  ? Text(
+                      "${_currentDocument.data()["name"]}",
+                      style: const TextStyle(
+                          fontSize: 40, fontWeight: FontWeight.bold),
+                    )
+                  : null,
             ),
-          )
-        ],
+            Center(
+                child: _isFetched
+                    ? Text(
+                        "${_currentDocument.data()["country"]}",
+                        style: const TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w500),
+                      )
+                    : null),
+            Center(
+                child: _isFetched
+                    ? Text(
+                        "${_currentDocument.data()["state"]}",
+                        style: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      )
+                    : null),
+          ],
+        ),
       ),
     );
   }
