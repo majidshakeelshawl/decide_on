@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get_it_done/services/auth.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/light.dart';
@@ -14,7 +14,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _auth = FirebaseAuth.instance;
+  final _auth = AuthService();
   late String userEmail;
   late String userPassword;
   @override
@@ -77,7 +77,7 @@ class _LoginState extends State<Login> {
                     }
                   } catch (error) {
                     //print(_auth.currentUser);
-                    if (_auth.currentUser == null) {
+                    if (_auth.currentUser() == null) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text("Invalid Email or Password"),

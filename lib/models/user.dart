@@ -1,14 +1,7 @@
-class User {
-  String name;
-  String id;
-  String email;
-  String country;
-  String state;
+import 'package:firebase_auth/firebase_auth.dart';
 
-  User(
-      {required this.id,
-      required this.name,
-      required this.country,
-      required this.email,
-      required this.state});
+class CustomUser {
+  final String uid;
+  final User user;
+  CustomUser({required this.uid, required this.user});
 }
