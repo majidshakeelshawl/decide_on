@@ -9,11 +9,15 @@ class AuthService {
   }
 
   User? currentUser() {
-    print("USER FROM CUSTOM CLASS ${_auth.currentUser}");
     return _auth.currentUser;
   }
 
-  //signinwithemailpassword
+  // CustomUser Stream: will return null when user signs-out
+  Stream<CustomUser?> get user {
+    return _auth.authStateChanges().map((user) => _userFromFirebaseUser(user!));
+  }
+
+  // signinwithemailpassword
   Future signInWithEmailAndPassword({email, password}) async {
     _auth.signOut(); // find and fix the cache user problem
     try {
@@ -23,6 +27,16 @@ class AuthService {
       return _userFromFirebaseUser(user!);
     } catch (err) {
       print(err.toString());
+    }
+  }
+
+  //  Sign Out : will send null to stream user above
+  Future signOut() async {
+    try {
+      await _auth.signOut();
+      print(_auth.currentUser);
+    } catch (error) {
+      print(error.toString());
     }
   }
 }
