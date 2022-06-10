@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it_done/services/authentication.dart';
+import 'package:get_it_done/services/firestore.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -14,15 +14,13 @@ class DashBoard extends StatefulWidget {
 // Dash
 class _DashBoardState extends State<DashBoard> {
   final _auth = AuthService();
-  final _auth2 = FirebaseAuth.instance;
-  final _firestore = FirebaseFirestore.instance;
+  final _firestore = FireStoreService();
   var _isFetched = false;
   var _currentDocument;
 
   void _setUser() async {
-    var currentUser = _auth2.currentUser;
-    _currentDocument =
-        await _firestore.collection('users').doc(currentUser?.uid).get();
+    var currentUser = _auth.currentUser();
+    _currentDocument = await _firestore.getDocument('users');
     print("${_currentDocument.data()} in init method");
     _isFetched = true;
     setState(() {});
@@ -43,12 +41,13 @@ class _DashBoardState extends State<DashBoard> {
           actions: [
             InkWell(
               child: const FaIcon(
-                FontAwesomeIcons.person,
-                size: 50.2,
+                FontAwesomeIcons.shuttleSpace,
+                size: 50,
               ),
               onTap: () async {
                 await _auth.signOut();
                 print("Pressed Sign Out");
+                Navigator.pushNamed(context, '/');
               },
             ),
           ],

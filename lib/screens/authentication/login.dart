@@ -69,7 +69,7 @@ class _LoginState extends State<Login> {
                   try {
                     final loggedInUser = await _auth.signInWithEmailAndPassword(
                         email: userEmail, password: userPassword);
-                    //print(_auth.currentUser);
+                    print("${_auth.currentUser} in login screen");
                     if (mounted) {
                       loggedInUser.user != null
                           ? Navigator.pushNamed(context, '/dashboard')
