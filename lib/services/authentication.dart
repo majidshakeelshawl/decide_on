@@ -7,6 +7,13 @@ class AuthService {
     return _auth.currentUser;
   }
 
+  // createUserWithEmailAndPassword
+  Future<UserCredential> createUserWithEmailAndPassword(
+      {email, password}) async {
+    return await _auth.createUserWithEmailAndPassword(
+        email: email, password: password);
+  }
+
   // signinwithemailpassword
   Future signInWithEmailAndPassword({email, password}) async {
     _auth.signOut(); // find and fix the cache user problem

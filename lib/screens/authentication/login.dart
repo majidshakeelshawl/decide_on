@@ -1,4 +1,5 @@
 import 'package:get_it_done/services/authentication.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/light.dart';
@@ -15,6 +16,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final _auth = AuthService();
+  final _fireStore = FirebaseFirestore.instance;
   late String userEmail;
   late String userPassword;
   @override
@@ -70,10 +72,14 @@ class _LoginState extends State<Login> {
                     final loggedInUser = await _auth.signInWithEmailAndPassword(
                         email: userEmail, password: userPassword);
                     print("${_auth.currentUser} in login screen");
+                    final data = await _fireStore
+                        .collection('users')
+                        .doc(_auth.currentUser()!.uid)
+                        .get();
                     if (mounted) {
-                      loggedInUser.user != null
+                      data.data()!.containsKey('reviews')
                           ? Navigator.pushNamed(context, '/dashboard')
-                          : null;
+                          : Navigator.pushNamed(context, '/moreinfo');
                     }
                   } catch (error) {
                     //print(_auth.currentUser);

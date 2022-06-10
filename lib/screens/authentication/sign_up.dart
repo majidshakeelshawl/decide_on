@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get_it_done/widgets/c_clipper_widget.dart';
+import 'package:get_it_done/services/authentication.dart';
 
 import '../../constants/light.dart';
 import '../../constants/light_dark.dart';
@@ -16,7 +16,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final _auth = FirebaseAuth.instance;
+  final _auth = AuthService();
   late String userEmail;
   late String userPassword;
   @override
@@ -99,7 +99,7 @@ class _SignUpState extends State<SignUp> {
                                 duration: Duration(seconds: 3),
                               ),
                             );
-                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/moreinfo');
                           }
                         } catch (error) {
                           //print(error);

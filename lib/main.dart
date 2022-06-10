@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it_done/screens/authentication/more_info.dart';
 import 'package:get_it_done/screens/dashboard/dashboard.dart';
 import 'package:get_it_done/screens/home/home.dart';
 import 'package:get_it_done/screens/authentication/sign_up.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Home(),
         '/dashboard': (context) => const DashBoard(),
         '/signup': (context) => const SignUp(),
+        '/moreinfo': (context) => const MoreInfo(),
       },
     );
   }
