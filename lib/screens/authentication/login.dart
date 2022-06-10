@@ -1,4 +1,4 @@
-import 'package:get_it_done/services/auth.dart';
+import 'package:get_it_done/services/authentication.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/light.dart';

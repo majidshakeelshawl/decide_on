@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get_it_done/services/auth.dart';
+import 'package:get_it_done/services/authentication.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class DashBoard extends StatefulWidget {
   State<DashBoard> createState() => _DashBoardState();
 }
 
-//Dash
+// Dash
 class _DashBoardState extends State<DashBoard> {
   final _auth = AuthService();
   final _auth2 = FirebaseAuth.instance;
@@ -39,7 +39,7 @@ class _DashBoardState extends State<DashBoard> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Dashboard"),
+          title: const Text("Dashboard"),
           actions: [
             InkWell(
               child: const FaIcon(
