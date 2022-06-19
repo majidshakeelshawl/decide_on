@@ -34,3 +34,24 @@ kldHeightLoginSignUpButton(BuildContext context) {
 kldWidthLoginSignUpButton(BuildContext context) {
   return (MediaQuery.of(context).size.width * 2);
 }
+
+kldPaddingNameTextField(BuildContext context) {
+  return (EdgeInsets.fromLTRB(
+      MediaQuery.of(context).size.width * 0.05,
+      0,
+      MediaQuery.of(context).size.width * 0.05,
+      MediaQuery.of(context).size.height * 0.01));
+}
+
+kldPaddingProfessionTextField(BuildContext context) {
+  return (EdgeInsets.fromLTRB(
+      MediaQuery.of(context).size.width * 0.05,
+      0,
+      MediaQuery.of(context).size.width * 0.05,
+      MediaQuery.of(context).size.height * 0.01));
+}
+
+kldPaddingCountryTextField(BuildContext context) {
+  return (EdgeInsets.fromLTRB(MediaQuery.of(context).size.width * 0.05, 0,
+      MediaQuery.of(context).size.width * 0.05, 0));
+}

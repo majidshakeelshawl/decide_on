@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_it_done/constants/light.dart';
+import 'package:get_it_done/constants/light_dark.dart';
 import 'package:get_it_done/services/authentication.dart';
+import 'package:get_it_done/widgets/c_clipper_widget.dart';
 import 'package:get_it_done/widgets/c_text_field.dart';
 import 'package:get_it_done/widgets/cbutton.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MoreInfo extends StatefulWidget {
   const MoreInfo({Key? key}) : super(key: key);
@@ -21,70 +24,127 @@ class _MoreInfoState extends State<MoreInfo> {
   late String country;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CTextField(
-              hasIcon: true,
-              prefixIcon: const FaIcon(FontAwesomeIcons.idCard),
-              obscureText: false,
-              hintText: "Enter Name",
-              keyboardType: TextInputType.name,
-              hintTextFont: GoogleFonts.aBeeZee(),
-              userTextFont: GoogleFonts.aBeeZee(),
-              borderWidth: 2.2,
-              borderColor: Colors.red,
-              onChanged: (value) {
-                name = value;
-              }),
-          CTextField(
-              hasIcon: true,
-              prefixIcon: const FaIcon(FontAwesomeIcons.toolbox),
-              obscureText: false,
-              hintText: "Enter Profession",
-              keyboardType: TextInputType.name,
-              hintTextFont: GoogleFonts.aBeeZee(),
-              userTextFont: GoogleFonts.aBeeZee(),
-              borderWidth: 2.2,
-              borderColor: Colors.red,
-              onChanged: (value) {
-                profession = value;
-              }),
-          CTextField(
-              hasIcon: true,
-              prefixIcon: const FaIcon(FontAwesomeIcons.globe),
-              obscureText: false,
-              hintText: "Enter Country",
-              keyboardType: TextInputType.name,
-              hintTextFont: GoogleFonts.aBeeZee(),
-              userTextFont: GoogleFonts.aBeeZee(),
-              borderWidth: 2.2,
-              borderColor: Colors.red,
-              onChanged: (value) {
-                country = value;
-              }),
-          CButton(
-              onTap: () async {
-                await _fireStore
-                    .collection('users')
-                    .doc(_auth.currentUser()!.uid)
-                    .set({
-                  "name": name,
-                  "country": country,
-                  "profession": profession,
-                  "reviews": 0,
-                });
-                print("Saved Data");
-              },
-              buttonColor: Colors.blueGrey,
-              height: 90,
-              width: 320,
-              text: "Done",
-              font: GoogleFonts.abhayaLibre(),
-              margin: EdgeInsets.all(30.0),
-              borderColor: Colors.pink)
-        ],
+    return SafeArea(
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          backgroundColor: klBackgroundColorScaffold,
+          resizeToAvoidBottomInset: false,
+          body: Column(
+            children: [
+              CClipperWidget(
+                clipper: WaveClipperOne(),
+                color: klBackgroundColorHomeClipper,
+                heightFactor: 0.25,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "One More Step",
+                      style: klFontLogo(context),
+                    ),
+                    Text(
+                      "Tell us more",
+                      style: klFontTagLine(context),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        Padding(
+                          padding: kldPaddingNameTextField(context),
+                          child: CTextField(
+                            hasIcon: true,
+                            prefixIcon: const FaIcon(
+                              FontAwesomeIcons.idCard,
+                              color: Color(0xff065C6F),
+                            ),
+                            obscureText: false,
+                            hintText: "Enter Name",
+                            keyboardType: TextInputType.name,
+                            hintTextFont: klFontEmailHint(context),
+                            userTextFont: klFontEmailUser(context),
+                            borderWidth: 2.2,
+                            borderColor: klBorderColorEmailPasswordTextField,
+                            onChanged: (value) {
+                              name = value;
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: kldPaddingProfessionTextField(context),
+                          child: CTextField(
+                              hasIcon: true,
+                              prefixIcon: const FaIcon(
+                                FontAwesomeIcons.toolbox,
+                                color: Color(0xff065C6F),
+                              ),
+                              obscureText: false,
+                              hintText: "Enter Profession",
+                              keyboardType: TextInputType.name,
+                              hintTextFont: klFontEmailHint(context),
+                              userTextFont: klFontEmailUser(context),
+                              borderWidth: 2.2,
+                              borderColor: klBorderColorEmailPasswordTextField,
+                              onChanged: (value) {
+                                profession = value;
+                              }),
+                        ),
+                        Padding(
+                          padding: kldPaddingCountryTextField(context),
+                          child: CTextField(
+                              hasIcon: true,
+                              prefixIcon: const FaIcon(
+                                FontAwesomeIcons.globe,
+                                color: Color(0xff065C6F),
+                              ),
+                              obscureText: false,
+                              hintText: "Enter Country",
+                              keyboardType: TextInputType.name,
+                              hintTextFont: klFontEmailHint(context),
+                              userTextFont: klFontEmailUser(context),
+                              borderWidth: 2.2,
+                              borderColor: klBorderColorEmailPasswordTextField,
+                              onChanged: (value) {
+                                country = value;
+                              }),
+                        ),
+                      ],
+                    ),
+                    CButton(
+                      onTap: () async {
+                        await _fireStore
+                            .collection('users')
+                            .doc(_auth.currentUser()!.uid)
+                            .set({
+                          "name": name,
+                          "country": country,
+                          "profession": profession,
+                          "reviews": 0,
+                        });
+                        if (mounted) {
+                          Navigator.pushNamed(context, '/dashboard');
+                        }
+                      },
+                      buttonColor: klColorLoginButton,
+                      height: 80,
+                      width: 250,
+                      text: "Save",
+                      font: klFontEmailUser(context),
+                      margin: const EdgeInsets.all(0),
+                      borderColor: klBorderColorLoginButton,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

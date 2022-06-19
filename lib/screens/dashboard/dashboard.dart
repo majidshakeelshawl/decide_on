@@ -22,7 +22,6 @@ class _DashBoardState extends State<DashBoard> {
         .collection('users')
         .doc(_auth.currentUser()!.uid)
         .get();
-    print("${_currentDocument.data()} in init method");
     _isFetched = true;
     setState(() {});
   }
@@ -47,7 +46,6 @@ class _DashBoardState extends State<DashBoard> {
               ),
               onTap: () async {
                 await _auth.signOut();
-                print("Pressed Sign Out");
                 Navigator.pushNamed(context, '/');
               },
             ),
