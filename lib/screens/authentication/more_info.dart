@@ -24,125 +24,130 @@ class _MoreInfoState extends State<MoreInfo> {
   late String country;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Scaffold(
-          backgroundColor: klBackgroundColorScaffold,
-          resizeToAvoidBottomInset: false,
-          body: Column(
-            children: [
-              CClipperWidget(
-                clipper: WaveClipperOne(),
-                color: klBackgroundColorHomeClipper,
-                heightFactor: 0.25,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "One More Step",
-                      style: klFontLogo(context),
-                    ),
-                    Text(
-                      "Tell us more",
-                      style: klFontTagLine(context),
-                    ),
-                  ],
+    // used this willpopscope screen to make sure user has a chance
+    // to enter more details.
+    return WillPopScope(
+      onWillPop: ()async=> false,
+      child: SafeArea(
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            backgroundColor: klBackgroundColorScaffold,
+            resizeToAvoidBottomInset: false,
+            body: Column(
+              children: [
+                CClipperWidget(
+                  clipper: WaveClipperOne(),
+                  color: klBackgroundColorHomeClipper,
+                  heightFactor: 0.25,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "One More Step",
+                        style: klFontLogo(context),
+                      ),
+                      Text(
+                        "Tell us more",
+                        style: klFontTagLine(context),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        Padding(
-                          padding: kldPaddingNameTextField(context),
-                          child: CTextField(
-                            hasIcon: true,
-                            prefixIcon: const FaIcon(
-                              FontAwesomeIcons.idCard,
-                              color: Color(0xff065C6F),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: kldPaddingNameTextField(context),
+                            child: CTextField(
+                              hasIcon: true,
+                              prefixIcon: const FaIcon(
+                                FontAwesomeIcons.idCard,
+                                color: Color(0xff065C6F),
+                              ),
+                              obscureText: false,
+                              hintText: "Enter Name",
+                              keyboardType: TextInputType.name,
+                              hintTextFont: klFontEmailHint(context),
+                              userTextFont: klFontEmailUser(context),
+                              borderWidth: 2.2,
+                              borderColor: klBorderColorEmailPasswordTextField,
+                              onChanged: (value) {
+                                name = value;
+                              },
                             ),
-                            obscureText: false,
-                            hintText: "Enter Name",
-                            keyboardType: TextInputType.name,
-                            hintTextFont: klFontEmailHint(context),
-                            userTextFont: klFontEmailUser(context),
-                            borderWidth: 2.2,
-                            borderColor: klBorderColorEmailPasswordTextField,
-                            onChanged: (value) {
-                              name = value;
-                            },
                           ),
-                        ),
-                        Padding(
-                          padding: kldPaddingProfessionTextField(context),
-                          child: CTextField(
-                              hasIcon: true,
-                              prefixIcon: const FaIcon(
-                                FontAwesomeIcons.toolbox,
-                                color: Color(0xff065C6F),
-                              ),
-                              obscureText: false,
-                              hintText: "Enter Profession",
-                              keyboardType: TextInputType.name,
-                              hintTextFont: klFontEmailHint(context),
-                              userTextFont: klFontEmailUser(context),
-                              borderWidth: 2.2,
-                              borderColor: klBorderColorEmailPasswordTextField,
-                              onChanged: (value) {
-                                profession = value;
-                              }),
-                        ),
-                        Padding(
-                          padding: kldPaddingCountryTextField(context),
-                          child: CTextField(
-                              hasIcon: true,
-                              prefixIcon: const FaIcon(
-                                FontAwesomeIcons.globe,
-                                color: Color(0xff065C6F),
-                              ),
-                              obscureText: false,
-                              hintText: "Enter Country",
-                              keyboardType: TextInputType.name,
-                              hintTextFont: klFontEmailHint(context),
-                              userTextFont: klFontEmailUser(context),
-                              borderWidth: 2.2,
-                              borderColor: klBorderColorEmailPasswordTextField,
-                              onChanged: (value) {
-                                country = value;
-                              }),
-                        ),
-                      ],
-                    ),
-                    CButton(
-                      onTap: () async {
-                        await _fireStore
-                            .collection('users')
-                            .doc(_auth.currentUser()!.uid)
-                            .set({
-                          "name": name,
-                          "country": country,
-                          "profession": profession,
-                          "reviews": 0,
-                        });
-                        if (mounted) {
-                          Navigator.pushNamed(context, '/dashboard');
-                        }
-                      },
-                      buttonColor: klColorLoginButton,
-                      height: 80,
-                      width: 250,
-                      text: "Save",
-                      font: klFontEmailUser(context),
-                      margin: const EdgeInsets.all(0),
-                      borderColor: klBorderColorLoginButton,
-                    ),
-                  ],
+                          Padding(
+                            padding: kldPaddingProfessionTextField(context),
+                            child: CTextField(
+                                hasIcon: true,
+                                prefixIcon: const FaIcon(
+                                  FontAwesomeIcons.toolbox,
+                                  color: Color(0xff065C6F),
+                                ),
+                                obscureText: false,
+                                hintText: "Enter Profession",
+                                keyboardType: TextInputType.name,
+                                hintTextFont: klFontEmailHint(context),
+                                userTextFont: klFontEmailUser(context),
+                                borderWidth: 2.2,
+                                borderColor: klBorderColorEmailPasswordTextField,
+                                onChanged: (value) {
+                                  profession = value;
+                                }),
+                          ),
+                          Padding(
+                            padding: kldPaddingCountryTextField(context),
+                            child: CTextField(
+                                hasIcon: true,
+                                prefixIcon: const FaIcon(
+                                  FontAwesomeIcons.globe,
+                                  color: Color(0xff065C6F),
+                                ),
+                                obscureText: false,
+                                hintText: "Enter Country",
+                                keyboardType: TextInputType.name,
+                                hintTextFont: klFontEmailHint(context),
+                                userTextFont: klFontEmailUser(context),
+                                borderWidth: 2.2,
+                                borderColor: klBorderColorEmailPasswordTextField,
+                                onChanged: (value) {
+                                  country = value;
+                                }),
+                          ),
+                        ],
+                      ),
+                      CButton(
+                        onTap: () async {
+                          await _fireStore
+                              .collection('users')
+                              .doc(_auth.currentUser()!.uid)
+                              .set({
+                            "name": name,
+                            "country": country,
+                            "profession": profession,
+                            "reviews": 0,
+                          });
+                          if (mounted) {
+                            Navigator.pushNamed(context, '/dashboard');
+                          }
+                        },
+                        buttonColor: klColorLoginButton,
+                        height: 80,
+                        width: 250,
+                        text: "Save",
+                        font: klFontEmailUser(context),
+                        margin: const EdgeInsets.all(0),
+                        borderColor: klBorderColorLoginButton,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
